@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
-from features import create_feature_vectors
+from ann import create_ann
 
 if __name__ == "__main__":
-    create_feature_vectors()
+    create_ann()
     print "ok"
 
 

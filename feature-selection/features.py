@@ -31,7 +31,16 @@ def create_feature_vectors():
     
     lines = []
     for k, v in ds:
-        line = ';'.join(map(str,k)) + ";" + str(v) + "\n"
+        if v == 0:
+            output = "1;0;0;0"
+        elif v == 1:
+            output = "0;1;0;0"
+        elif v == 2:
+            output = "0;0;1;0"
+        else:
+            output = "0;0;0;1"
+            
+        line = ';'.join(map(str,k)) + ";" + output + "\n"
         lines.append(line)
         
     fid = open("data/features.csv", "w")
