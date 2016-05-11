@@ -2,11 +2,11 @@ from random import random
 
 def create_feature_vectors():
     
+    ds = []
+    
     # Four classes
     for c in range(4):
         # 20 vectors for each class
-        
-        ds = []
         for i in range(20):
             v = []
             # 10 features for each vector
@@ -26,8 +26,18 @@ def create_feature_vectors():
                     v.append(random())    
             
             ds.append((v, c))
-            
-    print ds         
+    
+    print len(ds)
+    
+    lines = []
+    for k, v in ds:
+        line = ';'.join(map(str,k)) + ";" + str(v) + "\n"
+        lines.append(line)
+        
+    fid = open("data/features.csv", "w")
+    fid.writelines(lines)
+    fid.close();
+        
                     
             
             
